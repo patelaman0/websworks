@@ -1,0 +1,29 @@
+// Question: Write a C# (Win Form).NET program to accept the details from the user. Clicking on Submit 
+// button Net Salary should be calculated and displayed in the Textbox. Display the Message box informing 
+// the Name and Net Salary of employee.
+
+using System;
+using System.Windows.Forms;
+
+namespace NetSalaryApp
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+            double basicSalary = Convert.ToDouble(txtBasicSalary.Text);
+            double hra = basicSalary * 0.10;  // 10% of basic salary
+            double da = basicSalary * 0.05;   // 5% of basic salary
+            double netSalary = basicSalary + hra + da;
+
+            txtNetSalary.Text = netSalary.ToString("F2");
+
+            MessageBox.Show($"Employee: {txtName.Text}\nNet Salary: {netSalary}");
+        }
+    }
+}

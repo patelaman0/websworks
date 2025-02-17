@@ -1,0 +1,30 @@
+// Question: Write a C# (Win Form).Net program to generate a Sample TreeView control.
+
+using System;
+using System.Windows.Forms;
+
+namespace TreeViewSample
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+            InitializeTreeView();
+        }
+
+        private void InitializeTreeView()
+        {
+            TreeNode rootNode = new TreeNode("Root");
+            treeView.Nodes.Add(rootNode);
+
+            TreeNode childNode1 = new TreeNode("Child Node 1");
+            rootNode.Nodes.Add(childNode1);
+
+            TreeNode childNode2 = new TreeNode("Child Node 2");
+            rootNode.Nodes.Add(childNode2);
+
+            treeView.ExpandAll();
+        }
+    }
+}

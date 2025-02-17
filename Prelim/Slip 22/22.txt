@@ -1,0 +1,30 @@
+/*
+ * Slip 5A: Write a C# (Win Form).Net program to accept a character from keyboard and check
+ * whether it is vowel or consonant. Also display the case of that character.
+ */
+using System;
+using System.Windows.Forms;
+
+namespace Slip5A
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void btnCheck_Click(object sender, EventArgs e)
+        {
+            char ch = txtChar.Text[0];
+            string vowels = "aeiouAEIOU";
+
+            if (vowels.Contains(ch))
+                lblResult.Text = $"{ch} is a Vowel.";
+            else
+                lblResult.Text = $"{ch} is a Consonant.";
+
+            lblCase.Text = char.IsUpper(ch) ? "Upper Case" : "Lower Case";
+        }
+    }
+}

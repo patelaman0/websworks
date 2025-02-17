@@ -1,0 +1,35 @@
+// Question: Write a C# (Win Form).Net program for blinking an image.
+
+using System;
+using System.Drawing;
+using System.Windows.Forms;
+
+public partial class BlinkingImageForm : Form
+{
+    Timer timer;
+    bool isVisible = true;
+
+    public BlinkingImageForm()
+    {
+        InitializeComponent();
+        
+        timer = new Timer();
+        timer.Interval = 500; // 500 ms interval
+        timer.Tick += new EventHandler(BlinkImage);
+        timer.Start();
+    }
+
+    private void BlinkImage(object sender, EventArgs e)
+    {
+        if (isVisible)
+        {
+            pictureBox1.Visible = false;
+        }
+        else
+        {
+            pictureBox1.Visible = true;
+        }
+
+        isVisible = !isVisible;
+    }
+}
